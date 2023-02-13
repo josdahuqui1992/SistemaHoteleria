@@ -13,7 +13,7 @@ import java.sql.SQLException;
  */
 public class Conexion {
     
-     public static Connection conectar(){
+    public static Connection conectar(){
         Connection SQLConexion = null;
         //Ruta URL de Base de Datos
         String host="localhost";
@@ -40,6 +40,6 @@ public class Conexion {
         }
          return SQLConexion;
     }
-    
+     
     
 }
