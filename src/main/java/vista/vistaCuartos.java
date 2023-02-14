@@ -7,6 +7,9 @@ package vista;
 
 import conexion.Conexion;
 import controlador.Ctrl_cuartos;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,6 +22,13 @@ import modelo.CategCuartos;
 import modelo.PuestoCuartos;
 import javax.swing.table.DefaultTableModel;
 import modelo.Cuartos;
+
+
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PiePlot3D;
+import org.jfree.data.general.DefaultPieDataset;
 
 /**
  *
@@ -140,13 +150,13 @@ public class vistaCuartos extends javax.swing.JInternalFrame {
             Connection cn = Conexion.conectar();
             st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
-
+            
             while (rs.next()) {
                 tablaCuartos[0] = rs.getInt("codCuartos");
                 tablaCuartos[1] = rs.getString("idcategoria");
                 tablaCuartos[2] = rs.getDouble("precioXdia");
                 tablaCuartos[3] = rs.getString("idestado");
-                modelo1.addRow(tablaCuartos);
+                modelo1.addRow(tablaCuartos);             
             }
             Table1.setModel(modelo1);
 
@@ -292,6 +302,7 @@ public class vistaCuartos extends javax.swing.JInternalFrame {
         jPanel3 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         Table = new javax.swing.JTable();
+        jPanel_Alquiler_cliente = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jRadioButton_TODO = new javax.swing.JRadioButton();
@@ -418,6 +429,19 @@ public class vistaCuartos extends javax.swing.JInternalFrame {
                 .addGap(310, 310, 310))
         );
 
+        jPanel_Alquiler_cliente.setBorder(javax.swing.BorderFactory.createTitledBorder("Grafico Alquiler"));
+
+        javax.swing.GroupLayout jPanel_Alquiler_clienteLayout = new javax.swing.GroupLayout(jPanel_Alquiler_cliente);
+        jPanel_Alquiler_cliente.setLayout(jPanel_Alquiler_clienteLayout);
+        jPanel_Alquiler_clienteLayout.setHorizontalGroup(
+            jPanel_Alquiler_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 492, Short.MAX_VALUE)
+        );
+        jPanel_Alquiler_clienteLayout.setVerticalGroup(
+            jPanel_Alquiler_clienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 285, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -428,17 +452,22 @@ public class vistaCuartos extends javax.swing.JInternalFrame {
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAgregar))
-                .addContainerGap(539, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jPanel_Alquiler_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnAgregar)
-                .addGap(61, 61, 61)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel_Alquiler_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnAgregar)
+                        .addGap(61, 61, 61)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(64, Short.MAX_VALUE))
         );
 
@@ -836,6 +865,7 @@ public class vistaCuartos extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel_Alquiler_cliente;
     private javax.swing.JRadioButton jRadioButton_TODO;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;

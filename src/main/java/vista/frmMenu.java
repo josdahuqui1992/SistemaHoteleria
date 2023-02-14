@@ -22,7 +22,7 @@ public class frmMenu extends javax.swing.JFrame implements Runnable {
 
     String hora, minutos, segundos;
     Thread hilo;
-    
+
     public static JDesktopPane jDesktopPane_Menu;
     //public static JPanel escritorio;
 
@@ -46,7 +46,6 @@ public class frmMenu extends javax.swing.JFrame implements Runnable {
 //        int alto = java.awt.Toolkit.getDefaultToolkit().getScreenSize().height;
 //        this.escritorio.setBounds(0, 0, ancho, (alto - 100));
 //        this.add(escritorio);
-
         //configuracion para un JFRAMEINTERNAL
         jDesktopPane_Menu = new JDesktopPane();
         int ancho = java.awt.Toolkit.getDefaultToolkit().getScreenSize().width;
@@ -159,7 +158,7 @@ public class frmMenu extends javax.swing.JFrame implements Runnable {
 
         jMenuBar1.add(jMenu_Cuartos);
 
-        jMenu2.setText("Hospitalizacion");
+        jMenu2.setText("Hospedaje");
         jMenu2.setPreferredSize(new java.awt.Dimension(150, 50));
         jMenuBar1.add(jMenu2);
 
@@ -198,7 +197,7 @@ public class frmMenu extends javax.swing.JFrame implements Runnable {
 
     private void jMenuItem_EmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_EmpleadosActionPerformed
 
-        vistaMantEmpleados vistaEmpleado = new vistaMantEmpleados();
+        vistaEmpleado vistaEmpleado = new vistaEmpleado();
         jDesktopPane_Menu.add(vistaEmpleado);
         Dimension desktopSize = jDesktopPane_Menu.getSize();
         Dimension FrameSize = vistaEmpleado.getSize();
@@ -218,7 +217,7 @@ public class frmMenu extends javax.swing.JFrame implements Runnable {
 
     private void jMenuItem_CuartosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_CuartosActionPerformed
         // TODO add your handling code here:
-       vistaCuartos verCuartos = new vistaCuartos();
+        vistaCuartos verCuartos = new vistaCuartos();
         jDesktopPane_Menu.add(verCuartos);
         Dimension desktopSize = jDesktopPane_Menu.getSize();
         Dimension FrameSize = verCuartos.getSize();
@@ -240,12 +239,12 @@ public class frmMenu extends javax.swing.JFrame implements Runnable {
 
     private void jMenuItem_ServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_ServicioActionPerformed
         // TODO add your handling code here:
-//        vistaMantServicio vistaServicio = new vistaMantServicio();
-//        jDesktopPane_Menu.add(vistaServicio);
-//        Dimension desktopSize = jDesktopPane_Menu.getSize();
-//        Dimension FrameSize = vistaServicio.getSize();
-//        vistaServicio.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
-//        vistaServicio.setVisible(true);
+        vistaServicio verservi = new vistaServicio();
+        jDesktopPane_Menu.add(verservi);
+        Dimension desktopSize = jDesktopPane_Menu.getSize();
+        Dimension FrameSize = verservi.getSize();
+        verservi.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+        verservi.setVisible(true);
     }//GEN-LAST:event_jMenuItem_ServicioActionPerformed
 
     /**
